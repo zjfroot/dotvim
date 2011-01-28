@@ -43,3 +43,50 @@ endif
 "
 highlight NonText guifg=#909090
 highlight SpecialKey guifg=#909090
+
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+let mapleader = ","
+
+"
+" Set some default stuff that allows for better integration
+"
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+set relativenumber
+set undofile
+
+"
+" Improve search
+"
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+
+"
+"Make line wrapping act sanely
+"
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=85
