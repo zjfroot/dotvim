@@ -19,3 +19,6 @@
 [submodule "bundle/neocomplcache"]
 	path = bundle/neocomplcache
 	url = https://github.com/tosik/neocomplcache.git
+[submodule "bundle/mako"]
+	path = bundle/mako
+	url = https://github.com/sophacles/vim-bundle-mako.git
