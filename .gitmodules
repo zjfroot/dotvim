@@ -13,3 +13,6 @@
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/snippets"]
+	path = bundle/snippets
+	url = git@github.com:carlosvillu/coffeScript-VIM-Snippets.git
