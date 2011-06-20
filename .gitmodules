@@ -16,3 +16,12 @@
 [submodule "bundle/snippets"]
 	path = bundle/snippets
 	url = git@github.com:carlosvillu/coffeScript-VIM-Snippets.git
+[submodule "bundle/neco-ghc"]
+	path = bundle/neco-ghc
+	url = https://github.com/ujihisa/neco-ghc.git
+[submodule "bundle/neocomplcache"]
+	path = bundle/neocomplcache
+	url = https://github.com/tosik/neocomplcache.git
+[submodule "bundle/mako"]
+	path = bundle/mako
+	url = https://github.com/sophacles/vim-bundle-mako.git

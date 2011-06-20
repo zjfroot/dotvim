@@ -8,6 +8,7 @@ filetype indent on
 
 set list
 set listchars=tab:▸\ ,eol:¬
+set showbreak=…
 
 set sw=2
 set tabstop=2
