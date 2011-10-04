@@ -6,6 +6,8 @@ syntax enable
 filetype plugin on
 filetype indent on
 
+colorscheme desert
+
 set list
 set listchars=tab:▸\ ,eol:¬
 set showbreak=…
@@ -15,29 +17,25 @@ set tabstop=2
 set expandtab
 set number
 
-colorscheme desert
 set guifont=Monospace\ 8
 
-"autocmd BufNewFile,BufRead *.java call l:SetJava()
 map <F2> :NERDTreeToggle<CR>
 
 " tab navigation like firefox
 nmap <C-h> :tabp<CR>
 nmap <C-l> :tabn<CR>
 
+noremap <Left>  <NOP>
 inoremap <Left>  <NOP>
+noremap <Right> <NOP>
 inoremap <Right> <NOP>
+noremap <Up>    <NOP>
 inoremap <Up>    <NOP>
+noremap <Down>  <NOP>
 inoremap <Down>  <NOP>
 
 " :inoremap <Esc>   <NOP>
 " :inoremap kj <Esc>
-
-if has("autocmd")
-  " do all autocmd stuff here
-  " autocmd FileType javascript <cmd>
-  " autocmd BufNewFile,BufRead *.js <cmd>
-endif
 
 "
 " Custom Highlights
@@ -66,8 +64,7 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
-set relativenumber
-set undofile
+
 
 "
 " Improve search
@@ -80,7 +77,7 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
-nnoremap <leader><space> :noh<cr>
+nnoremap <leader><space> :noh<CR>
 nnoremap <tab> %
 vnoremap <tab> %
 
@@ -91,3 +88,32 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=85
+set wildignore+=**/.svn
+set wildignore+=*.class
+set wildignore+=**/tmp
+
+"
+" Features only exists in 7.3
+"
+if v:version >= 703
+  set undofile
+  set relativenumber
+endif
+
+function! SetupJava()
+  set path=src/main/java,src/test/java,$JAVA_HOME/src
+  set suffixesadd=.java
+endfunction
+
+function! SetupPython()
+  nmap <leader>d :!pydoc <cfile><CR>
+  nmap <leader>x :!python %<CR>
+  set suffixesadd=.py
+endfunction
+
+if has("autocmd")
+  " do all autocmd stuff here
+  " autocmd FileType javascript <cmd>
+  autocmd BufNewFile,BufRead *.java :call SetupJava()
+  autocmd BufNewFile,BufRead *.py :call SetupPython()
+endif
