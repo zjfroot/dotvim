@@ -12,8 +12,8 @@ set list
 set listchars=tab:▸\ ,eol:¬
 set showbreak=…
 
-set sw=2
-set tabstop=2
+set sw=4
+set tabstop=4
 set expandtab
 set number
 
@@ -46,6 +46,7 @@ highlight SpecialKey guifg=#909090
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 let mapleader = ","
+let maplocalleader = '\'
 
 "
 " Set some default stuff that allows for better integration
@@ -105,9 +106,14 @@ function! SetupJava()
   set suffixesadd=.java
 endfunction
 
+function! SetupPHP()
+  set noexpandtab
+  set suffixesadd=.php
+endfunction
+
 function! SetupPython()
   nmap <leader>d :!pydoc <cfile><CR>
-  nmap <leader>x :!python %<CR>
+  nmap <leader>x :w<cr>!python %<CR>
   set suffixesadd=.py
 endfunction
 
@@ -116,4 +122,6 @@ if has("autocmd")
   " autocmd FileType javascript <cmd>
   autocmd BufNewFile,BufRead *.java :call SetupJava()
   autocmd BufNewFile,BufRead *.py :call SetupPython()
+  autocmd BufNewFile,BufRead *.php :call SetupPHP()
+  autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 endif
