@@ -125,3 +125,8 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.php :call SetupPHP()
   autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 endif
+
+"
+" orgmode settings
+"
+let g:org_agenda_files=['~/.vim/org/index.org']
